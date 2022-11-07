@@ -1,0 +1,48 @@
+<div class="todo-container">
+  <div class="form-container">
+    <form (ngSubmit)="searchTodo(myForm)" #myForm="ngForm">
+      <mat-form-field appearance="outline">
+        <input
+          ngModel
+          name="searchTodo"
+          matInput
+          placeholder="Search your todo"
+        />
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Search</button>
+    </form>
+  </div>
+  <h1>Notes</h1>
+  <div class="todo-main">
+    <div class="main-list">
+      <div
+        *ngFor="let list of todoList"
+        class="todos-list"
+        [ngClass]="{ changebackground: searchItem != '' }"
+      >
+        <h2>{{ list.title }}</h2>
+        <p>{{ list.body }}</p>
+      </div>
+    </div>
+    <div class="details">
+      <h2>Write your ideas</h2>
+      <div class="tags-button" *ngFor="let tag of tagsList">
+        <div class="button-container">
+          <button (click)="showTag(tag.id)" mat-button>
+            #{{ tag.tag | lowercase }}
+          </button>
+        </div>
+      </div>
+      <div class="form-container">
+        <p *ngIf="showSearchBody">{{ searchedTodo.body }}</p>
+
+        <div *ngIf="showTagElement" class="single-tag">
+          <h3>{{ singleTag.tag }}</h3>
+          <p *ngFor="let list of singleTag.todos">
+            <span>{{ list }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

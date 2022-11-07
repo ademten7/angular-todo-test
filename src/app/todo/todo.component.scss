@@ -1,0 +1,36 @@
+.todo-container {
+  margin-top: 2em;
+  margin-left: 2em;
+}
+.todo-main {
+  display: flex;
+  flex: 1 1;
+}
+.main-list {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.details {
+  width: 40%;
+  margin-left: 2em;
+  height: 700px;
+}
+
+button {
+  margin-left: 10px;
+}
+.tags-button {
+  display: flex;
+  color: orange;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+.single-tag {
+  z-index: 10;
+}
+.changebackground {
+  background-color: orange;
+}
